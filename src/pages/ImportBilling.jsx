@@ -48,64 +48,65 @@ const ImportBilling = () => {
       <Stack gap="lg" alignment="center" direction="vertical">
         <Text variant="title">Import Billing Data</Text>
         <Text>Upload CSV files to import billing or invoice data</Text>
-
-        <Card className="w-[929px] h-[404px] flex  justify-center">
-          <Stack gap="lg" alignment="center">
-            <Box padding="md">
-              <Text variant="body">
-                Supported format: CSV files only Maximum file size: 5MB
-              </Text>
-            </Box>
-            <Button onClick={handleSelectFile} variant="secondary">
-              <Text variant="body">Select CSV file</Text>
-            </Button>
-            <input
-              type="file"
-              accept=".csv"
-              ref={fileInputRef}
-              className="hidden"
-              onChange={(e) => {
-                const newFile = e.target.files[0];
-                if (!newFile) return;
-
-                setFile(newFile);
-
-                setUploaded(false);
-                setHeaders([]);
-                setRows([]);
-                setIsUploading(false);
-
-                e.target.value = null;
-              }}
-            />
-            {file && (
-              <Box background="muted" rounded="md" className="mt-4">
-                <Text variant="muted">Selected file: {file.name}</Text>
+        <Box padding="md">
+          <Card className="w-[929px] h-[404px] flex  justify-center">
+            <Stack gap="lg" alignment="center">
+              <Box padding="md">
+                <Text variant="body">
+                  Supported format: CSV files only Maximum file size: 5MB
+                </Text>
               </Box>
-            )}
-
-            {file && !uploaded && (
-              <Button
-                variant="primary"
-                onClick={handleUpload}
-                disabled={isUploading}
-              >
-                {isUploading ? "Uploading..." : "Upload CSV"}
+              <Button onClick={handleSelectFile} variant="secondary">
+                <Text variant="body">Select CSV file</Text>
               </Button>
-            )}
+              <input
+                type="file"
+                accept=".csv"
+                ref={fileInputRef}
+                className="hidden"
+                onChange={(e) => {
+                  const newFile = e.target.files[0];
+                  if (!newFile) return;
 
-            {uploaded && (
-              <Box
-                padding="sm"
-                background="muted"
-                className="flex items-center gap-2 text-green-700"
-              >
-                <span>✅</span>
-                <Text>File uploaded successfully</Text>
-              </Box>
-            )}
-          </Stack>
-        </Card>
+                  setFile(newFile);
+
+                  setUploaded(false);
+                  setHeaders([]);
+                  setRows([]);
+                  setIsUploading(false);
+
+                  e.target.value = null;
+                }}
+              />
+              {file && (
+                <Box background="muted" rounded="md" className="mt-4">
+                  <Text variant="muted">Selected file: {file.name}</Text>
+                </Box>
+              )}
+
+              {file && !uploaded && (
+                <Button
+                  variant="primary"
+                  onClick={handleUpload}
+                  disabled={isUploading}
+                >
+                  {isUploading ? "Uploading..." : "Upload CSV"}
+                </Button>
+              )}
+
+              {uploaded && (
+                <Box
+                  padding="sm"
+                  background="muted"
+                  className="flex items-center gap-2 text-green-700"
+                >
+                  <span>✅</span>
+                  <Text>File uploaded successfully</Text>
+                </Box>
+              )}
+            </Stack>
+          </Card>
+        </Box>
         {uploaded && (
           <Card className="mt-8 my-10 w-[929px]">
             <Stack gap="md">
