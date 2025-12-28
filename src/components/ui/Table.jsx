@@ -2,7 +2,7 @@ import Text from "./Text"
 
 const Table = ({ title, headers = [], rows = [] }) => {
   return (
-    <div className="w-full overflow-x-auto">
+    <div className="w-full overflow-x-auto ">
       {title && (
         <Text variant="subtitle" className="mb-2">
           {title}

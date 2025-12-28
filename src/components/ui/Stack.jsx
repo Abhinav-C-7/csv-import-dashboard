@@ -1,4 +1,3 @@
-
 const Stack = ({
   direction = "vertical",
   gap = "md",
@@ -10,13 +9,13 @@ const Stack = ({
     sm: "gap-2",
     md: "gap-4",
     lg: "gap-8",
-  }
+  };
 
   const alignmentVariants = {
     start: "items-start",
     center: "items-center",
     end: "items-end",
-  }
+  };
 
   return (
     <div
@@ -26,7 +25,7 @@ const Stack = ({
     >
       {children}
     </div>
-  )
-}
+  );
+};
 
-export default Stack
+export default Stack;

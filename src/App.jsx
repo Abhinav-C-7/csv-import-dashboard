@@ -1,17 +1,14 @@
-import ImportBilling from "./pages/ImportBilling"
-
+import { Routes, Route } from "react-router-dom";
+import ImportBilling from "./pages/ImportBilling";
+import ComponentShowcase from "./pages/ComponentShowcase";
 
 function App() {
-
-
   return (
-    <>
-
-      <ImportBilling/>
-      
-
-    </>
-  )
+    <Routes>
+      <Route path="/" element={<ImportBilling />} />
+      <Route path="/showcase" element={<ComponentShowcase />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
